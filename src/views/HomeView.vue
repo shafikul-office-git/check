@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+const items = [1, 2, 3, 2]
+</script>
 
 <template>
   <!-- https://picsum.photos/id/237/200/300 -->
@@ -29,68 +31,107 @@
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <!-- Card -->
-          <div class="bg-white dark:bg-gray-800 shadow rounded-lg p-4">
-            <img
-              src="https://via.placeholder.com/300x200"
-              alt="Clipping Path"
-              class="rounded mb-4"
-            />
-            <h3 class="text-xl font-bold mb-2">Clipping Path</h3>
-            <p class="mb-4">Hand-drawn clipping paths give you crisp, clean cutouts.</p>
-            <p class="text-primary font-bold">Starting at $0.39 per image</p>
-            <a
-              href="#"
-              class="block text-center mt-4 bg-primary text-white py-2 rounded hover:bg-yellow-600"
-              >View Details</a
+          <div
+            v-for="(item, index) in items"
+            :key="index"
+            class="max-w-sm mx-auto rounded-lg overflow-hidden shadow-md bg-white dark:bg-gray-800"
+          >
+            <!-- Full-width image -->
+            <div class="relative">
+              <img
+                src="https://via.placeholder.com/300x200"
+                alt="Product Image"
+                class="w-full h-48 object-cover"
+              />
+            </div>
+
+            <div
+              class="bg-white border rounded-md p-4 shadow-md max-w-sm flex justify-between items-start"
             >
-          </div>
-          <!-- Repeat similar cards for other services -->
-          <div class="bg-white dark:bg-gray-800 shadow rounded-lg p-4">
-            <img
-              src="https://via.placeholder.com/300x200"
-              alt="Skin Retouch"
-              class="rounded mb-4"
-            />
-            <h3 class="text-xl font-bold mb-2">Skin Retouch</h3>
-            <p class="mb-4">Enhance your images with professional skin retouching.</p>
-            <p class="text-primary font-bold">Starting at $0.39 per image</p>
-            <a
-              href="#"
-              class="block text-center mt-4 bg-primary text-white py-2 rounded hover:bg-yellow-600"
-              >View Details</a
+              <div>
+                <h2 class="text-yellow-500 text-xl font-semibold mb-2">Skin Retouch</h2>
+                <p class="text-gray-600">
+                  Hand-drawn clipping paths give you crisp, clean cutouts that you can put on any
+                  background.
+                </p>
+              </div>
+              <div class="bg-yellow-100 text-yellow-700 text-sm font-medium rounded-md px-3 py-2">
+                Starting at <span class="font-bold">$0.39</span> per image
+              </div>
+            </div>
+
+            <!-- Full-width button -->
+            <button
+              class="w-full px-4 py-3 bg-yellow-500 hover:bg-yellow-600 text-white font-semibold text-center"
             >
-          </div>
-          <div class="bg-white dark:bg-gray-800 shadow rounded-lg p-4">
-            <img
-              src="https://via.placeholder.com/300x200"
-              alt="Jewelry Path"
-              class="rounded mb-4"
-            />
-            <h3 class="text-xl font-bold mb-2">Jewelry Path</h3>
-            <p class="mb-4">Perfect edits for jewelry images with precision cutouts.</p>
-            <p class="text-primary font-bold">Starting at $0.39 per image</p>
-            <a
-              href="#"
-              class="block text-center mt-4 bg-primary text-white py-2 rounded hover:bg-yellow-600"
-              >View Details</a
-            >
+              View details
+            </button>
           </div>
         </div>
       </section>
 
       <!-- FAQ Section -->
       <section class="py-12">
-        <h2 class="text-2xl font-bold mb-6">Payment Information for HRS Edit Services</h2>
-        <div class="space-y-4">
-          <details class="bg-gray-100 dark:bg-gray-800 rounded p-4">
-            <summary class="font-bold cursor-pointer">What services do you offer?</summary>
-            <p class="mt-2">We offer clipping paths, retouching, jewelry edits, and more.</p>
-          </details>
-          <details class="bg-gray-100 dark:bg-gray-800 rounded p-4">
-            <summary class="font-bold cursor-pointer">How do I submit my photos?</summary>
-            <p class="mt-2">You can upload your photos through our secure portal.</p>
-          </details>
-          <!-- Add more FAQ items -->
+        <div class="flex flex-col md:flex-row items-start md:items-center gap-8 p-6 bg-gray-50">
+          <!-- FAQ Section -->
+          <div class="w-full md:w-1/2">
+            <div class="space-y-4">
+              <!-- Accordion Item -->
+              <div class="border rounded-lg shadow-sm bg-white">
+                <button
+                  class="w-full text-left p-4 text-gray-700 font-semibold flex justify-between items-center"
+                >
+                  What Services Do You Offer?
+                  <span class="text-gray-500">+</span>
+                </button>
+              </div>
+              <!-- Accordion Item -->
+              <div class="border rounded-lg shadow-sm bg-white">
+                <button
+                  class="w-full text-left p-4 text-gray-700 font-semibold flex justify-between items-center"
+                >
+                  How Do I Submit My Photos?
+                  <span class="text-gray-500">+</span>
+                </button>
+              </div>
+              <!-- Accordion Item -->
+              <div class="border rounded-lg shadow-sm bg-white">
+                <button
+                  class="w-full text-left p-4 text-gray-700 font-semibold flex justify-between items-center"
+                >
+                  What Are Your Prices and Turnaround Times?
+                  <span class="text-gray-500">+</span>
+                </button>
+              </div>
+              <!-- Accordion Item -->
+              <div class="border rounded-lg shadow-sm bg-white">
+                <button
+                  class="w-full text-left p-4 text-gray-700 font-semibold flex justify-between items-center"
+                >
+                  Do You Offer Revisions and Privacy Protection?
+                  <span class="text-gray-500">+</span>
+                </button>
+              </div>
+              <!-- Accordion Item -->
+              <div class="border rounded-lg shadow-sm bg-white">
+                <button
+                  class="w-full text-left p-4 text-gray-700 font-semibold flex justify-between items-center"
+                >
+                  How Can I Get Started or Contact You?
+                  <span class="text-gray-500">+</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Illustration Section -->
+          <div class="w-full md:w-1/2 flex justify-center">
+            <img
+              src="https://cdn.pixabay.com/photo/2019/01/18/20/08/heart-3940561_640.jpg "
+              alt="Illustration"
+              class="w-full max-w-md"
+            />
+          </div>
         </div>
       </section>
 
